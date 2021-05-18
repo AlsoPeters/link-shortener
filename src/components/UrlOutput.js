@@ -1,9 +1,9 @@
-import { Input, InputGroup } from 'rsuite';
+import { Input } from 'rsuite';
 
 export default function UserOutput() {
   return (
     <div className='div'>
-      <Input size='s' placeholder='Shortened URL' />
+      <Input />
     </div>
   );
 }

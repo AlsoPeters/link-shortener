@@ -1,16 +1,18 @@
 import React from 'react';
-import axios from 'axios';
+import shrtcode from './api/shrtcode';
 
 import UserInput from './components/UserInput';
 import UserOutput from './components/UrlOutput';
-import ShortUrlCall from './utilities/ShortUrlCall';
 
 import 'rsuite/dist/styles/rsuite-dark.css';
 
 class App extends React.Component {
-  onSearchSubmit(term) {
-    axios.post(`https://api.shrtco.de/v2/shorten?url=${term}`);
-  }
+  state = { link: '' };
+
+  onSearchSubmit = async (term) => {
+    const response = await shrtcode.post(`shorten?url=${term}`);
+    this.setState({ link: response.data.result.short_link });
+  };
 
   render() {
     return (

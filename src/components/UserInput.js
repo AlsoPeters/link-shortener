@@ -1,6 +1,6 @@
 import React from 'react';
-import { Input, InputGroup } from 'rsuite';
-import { Button, IconButton, ButtonGroup, ButtonToolbar } from 'rsuite';
+//import { Input, InputGroup } from 'rsuite';
+import { Button, ButtonToolbar } from 'rsuite';
 
 class UserInput extends React.Component {
   state = { term: '' };
