@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import UserInput from './components/UserInput';
+import UserOutput from './components/UrlOutput';
+import ShortUrlCall from './utilities/ShortUrlCall';
+
+import 'rsuite/dist/styles/rsuite-dark.css';
+
+class App extends React.Component {
+  onSearchSubmit(term) {
+    axios.post(`https://api.shrtco.de/v2/shorten?url=${term}`);
+  }
+
+  render() {
+    return (
+      <div className='ui container'>
+        <UserInput onSubmit={this.onSearchSubmit} />
+        <UserOutput />
+      </div>
+    );
+  }
 }
-
 export default App;
