@@ -1,6 +1,7 @@
 import React from 'react';
 //import { Input, InputGroup } from 'rsuite';
-import { Button, ButtonToolbar } from 'rsuite';
+
+import { Button } from 'rsuite';
 
 class UserInput extends React.Component {
   state = { term: '' };
@@ -22,11 +23,11 @@ class UserInput extends React.Component {
               value={this.state.term}
               onChange={(e) => this.setState({ term: e.target.value })}
             />
+            <Button onClick={this.onFormSubmit} color='blue'>
+              Shorten
+            </Button>
           </div>
         </form>
-        <ButtonToolbar>
-          <Button color='blue'>Shorten</Button>
-        </ButtonToolbar>
       </div>
     );
   }

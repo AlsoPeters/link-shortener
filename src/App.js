@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div className='ui container'>
         <UserInput onSubmit={this.onSearchSubmit} />
-        <UserOutput />
+        <UserOutput link={this.state.link} />
       </div>
     );
   }
