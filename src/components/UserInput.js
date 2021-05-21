@@ -1,36 +1,28 @@
-import React from 'react';
-//import { Input, InputGroup } from 'rsuite';
+import React, { useState, Component } from 'react';
+import { Input, InputGroup } from 'rsuite';
 
 import { Button } from 'rsuite';
 
-class UserInput extends React.Component {
-  state = { term: '' };
+export default function UserInput(props) {
+  const [term, setTerm] = useState('');
+  // state = { term: '' };
 
-  onFormSubmit = (event) => {
+  const onFormSubmit = (event) => {
     event.preventDefault();
-
-    this.props.onSubmit(this.state.term);
+    props.onSubmit(term);
   };
 
-  render() {
-    return (
-      <div className='ui segment'>
-        <form onSubmit={this.onFormSubmit} className='ui form'>
-          <div className='field'>
-            <label>Paste URL Here</label>
-            <input
-              type='text'
-              value={this.state.term}
-              onChange={(e) => this.setState({ term: e.target.value })}
-            />
-            <Button onClick={this.onFormSubmit} color='blue'>
-              Shorten
-            </Button>
-          </div>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div className='ui segment'>
+      <form onSubmit={onFormSubmit} className='ui form'>
+        <div className='field'>
+          <label>Paste URL Here</label>
+          <Input type='text' value={term} onChange={setTerm} />
+          <Button onClick={onFormSubmit} color='blue'>
+            Shorten
+          </Button>
+        </div>
+      </form>
+    </div>
+  );
 }
-
-export default UserInput;

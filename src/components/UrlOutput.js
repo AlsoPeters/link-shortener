@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from 'rsuite';
+import { Input, Button } from 'rsuite';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 export default function UserOutput(props) {
@@ -26,7 +26,7 @@ export default function UserOutput(props) {
     <div>
       <Input onChange={onChange} value={props.link} />
       <CopyToClipboard onCopy={onCopy} text={props.link}>
-        <button onClick={onClick}>Click to Copy</button>
+        <Button onClick={onClick}>Click to Copy</Button>
       </CopyToClipboard>
 
       <section className='section'>
