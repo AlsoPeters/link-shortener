@@ -12,6 +12,7 @@ class App extends React.Component {
   onSearchSubmit = async (term) => {
     const response = await shrtcode.post(`shorten?url=${term}`);
     this.setState({ link: response.data.result.short_link });
+    console.log(this.state.link);
   };
 
   render() {

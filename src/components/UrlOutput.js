@@ -8,9 +8,8 @@ export default function UserOutput(props) {
   const [value, setValue] = useState(props.link);
   const [copied, setCopied] = useState(false);
 
-  const onChange = (event) => {
-    console.log(event);
-    setValue(event);
+  const onChange = (value) => {
+    setValue(value);
     //event.target.value;
     //this.setState({ value, copied: false });
   };
@@ -25,8 +24,8 @@ export default function UserOutput(props) {
   };
   return (
     <div>
-      <Input onChange={onChange} value={value} />
-      <CopyToClipboard onCopy={onCopy} text={value}>
+      <Input onChange={onChange} value={props.link} />
+      <CopyToClipboard onCopy={onCopy} text={props.link}>
         <button onClick={onClick}>Click to Copy</button>
       </CopyToClipboard>
 
