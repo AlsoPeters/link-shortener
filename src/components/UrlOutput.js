@@ -8,14 +8,17 @@ export default function UserOutput(props) {
   const [value, setValue] = useState(props.link);
   const [copied, setCopied] = useState(false);
 
+  const styles = {
+    marginTop: 50,
+    width: 300,
+    marginBottom: 10,
+  };
+
   const onChange = (value) => {
     setValue(value);
-    //event.target.value;
-    //this.setState({ value, copied: false });
   };
 
   const onCopy = () => {
-    //this.setState({ copied: true });
     setCopied(true);
   };
 
@@ -24,7 +27,7 @@ export default function UserOutput(props) {
   };
   return (
     <div>
-      <Input onChange={onChange} value={props.link} />
+      <Input style={styles} onChange={onChange} value={props.link} />
       <CopyToClipboard onCopy={onCopy} text={props.link}>
         <Button onClick={onClick}>Click to Copy</Button>
       </CopyToClipboard>
@@ -35,18 +38,3 @@ export default function UserOutput(props) {
     </div>
   );
 }
-
-// return (
-//   <div>
-//     <CopyToClipboard onCopy={this.onCopy} text={this.state.value}>
-//       <Input onChange={this.onChange} value={this.state.value} />
-//       <button onClick={this.onClick}>Click to Copy</button>
-//     </CopyToClipboard>
-
-//     <section className='section'>
-//       {this.state.copied ? (
-//         <span style={{ color: 'red' }}>Copied!</span>
-//       ) : null}
-//     </section>
-//   </div>
-// );

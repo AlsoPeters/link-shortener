@@ -1,11 +1,15 @@
-import React, { useState, Component } from 'react';
-import { Input, InputGroup } from 'rsuite';
+import React, { useState } from 'react';
+import { Input } from 'rsuite';
 
 import { Button } from 'rsuite';
 
 export default function UserInput(props) {
   const [term, setTerm] = useState('');
-  // state = { term: '' };
+
+  const styles = {
+    width: 300,
+    marginBottom: 10,
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +21,7 @@ export default function UserInput(props) {
       <form onSubmit={onFormSubmit} className='ui form'>
         <div className='field'>
           <label>Paste URL Here</label>
-          <Input type='text' value={term} onChange={setTerm} />
+          <Input style={styles} type='text' value={term} onChange={setTerm} />
           <Button onClick={onFormSubmit} color='blue'>
             Shorten
           </Button>
